@@ -7,7 +7,7 @@ document.addEventListener('click', event => {
     if (event.target.className === 'gifImages') {
         let { animal } = event.target.dataset
 
-        fetch(`http://api.giphy.com/v1/gifs/search?&api_key=dc6zaTOxFJmzC&q=${animal}&limit=10&rating=pg`
+        fetch(`https://api.giphy.com/v1/gifs/search?&api_key=dc6zaTOxFJmzC&q=${animal}&limit=10&rating=pg`
         )
             // This is pulling the path to the URL and adding it to our HTML
             .then(r => r.json())
