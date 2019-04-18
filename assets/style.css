@@ -1,0 +1,27 @@
+#container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 10% 1fr;
+    justify-items: center
+}
+#giphyInput {
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
+    justify-self: start;
+}
+#gifDiv {
+    grid-column: 1 / span 1;
+    grid-row: 2 / span 1;
+}
+form {
+grid-column: 2 / span 1;
+grid-row: 1 / span 1;
+padding-top: 10px;
+}
+#aniList {
+    display: inline;
+}
+.gifImages {
+    background-color: yellow;
+    margin: 10px;
+}
