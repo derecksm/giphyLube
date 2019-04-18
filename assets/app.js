@@ -1,6 +1,6 @@
 //variable to swtich between animated and stil gif & to place my new gifs
-let toggle = false
 let animalList = []
+let toggle = false
 
 // lets you grab data value of selected buttons on HTML
 document.addEventListener('click', event => {
@@ -21,6 +21,7 @@ document.addEventListener('click', event => {
                     temp.setAttribute('alt',animal)
                     temp.setAttribute('data-still',still)
                     temp.setAttribute('data-animated',animated)
+                    temp.setAttribute('data-state', 'still')
                     document.querySelector('#gifDiv').append(temp) 
                 }
             })
@@ -28,9 +29,16 @@ document.addEventListener('click', event => {
             document.querySelector('#gifDiv').innerHTML = ''
         //this allows me to play and pause the gif 
     } else if (event.target.id === 'gifImg') {
-        let { animated, still } = event.target.dataset
-        toggle = !toggle
-        event.target.setAttribute('src', toggle ? animated : still)
+        let { animated, still, state } = event.target.dataset
+        if (state === 'still') {
+            event.target.setAttribute('src', animated)
+            event.target.setAttribute('data-state', 'animated')
+    } else {
+        event.target.setAttribute('src', still)
+            event.target.setAttribute('data-state', 'still')
+    }
+        // toggle = !toggle
+        // event.target.setAttribute('src', toggle ? animated : still)
     }
 })
 
